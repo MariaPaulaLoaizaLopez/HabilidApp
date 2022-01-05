@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Font_icons ="clr-namespace:HabilidApp.Fonts"
+             xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="HabilidApp.Views.PopUp.PopUpCreateActividad">
+
+    <StackLayout>
+        <Frame Margin="20" Padding="20">
+            <Grid>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Start">
+
+                    <Button  Clicked="salir_Clicked" 
+                            Text="{x:Static Font_icons:IconFonts.CancelCircled}" TextColor="Red" 
+                            Style="{StaticResource button2}" FontFamily="Icons" FontSize="20">
+                    </Button>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="1">
+
+                    <Label Text="Nombre"
+                    Style="{StaticResource Subtitle2}"
+                           TextColor="{StaticResource Background}"></Label>
+
+                    <Entry Text="{Binding NombreActividadEntry}" ></Entry>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="2">
+
+                    <Label Text="Duracion"
+                    Style="{StaticResource Subtitle2}"
+                       TextColor="{StaticResource Background}"></Label>
+
+                    <Entry Text="{Binding duracionEntry}"></Entry>
+
+                    <Button Style="{StaticResource button1}"
+                        Text="guardar"
+                        Command="{Binding SaveCommand}"></Button>
+
+                </StackLayout>
+                
+            </Grid>
+        </Frame>
+    </StackLayout>
+    
+</popup:PopupPage>

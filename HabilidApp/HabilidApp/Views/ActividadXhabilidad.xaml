@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:Font_icons ="clr-namespace:HabilidApp.Fonts"
+             x:Class="HabilidApp.Views.ActividadXhabilidad" BackgroundColor="{StaticResource Background}">
+    
+    <ContentPage.Content>
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" HorizontalOptions="Center">
+                
+                <Label Margin="0,40,0,0" Style="{StaticResource Title}"
+                       TextColor="{StaticResource pink}"
+                       Text="Actividades"></Label>
+                
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                
+                <Button Style="{StaticResource button2}"
+                        FontFamily="Icons"
+                        Text="{x:Static Font_icons:IconFonts.PlusCircled}"
+                        FontSize="20"
+                        Clicked="Nueva_Clicked"
+                        ></Button>
+                
+                <Label Text="Agregar nueva Actividad"
+                       Style="{StaticResource Subtitle1}"
+                       TextColor="{StaticResource white_font}"></Label>
+                
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                
+                <ListView  ItemsSource="{Binding ListViewSource}"  HasUnevenRows="True"
+                           ItemSelected="ListItemSelected">
+                    
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    
+                                    <CheckBox Color="{StaticResource mint}">
+                                    </CheckBox>
+                                    
+                                    <Label Style="{StaticResource Subtitle1}"
+                                           Text="{Binding NombreActividad}"
+                                           FontSize="Medium"
+                                           TextColor="{StaticResource white_font}"
+                                            ></Label>
+                                    
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    
+                </ListView>
+
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

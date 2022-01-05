@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Font_icons ="clr-namespace:HabilidApp.Fonts"
+             x:Class="HabilidApp.Views.EditarHabilidad" BackgroundColor="{StaticResource Background}">
+    
+    <ContentPage.Content>
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackLayout Margin="0,40,0,0"  Grid.Row="0" HorizontalOptions="Center">
+
+                <Label FontFamily="Icons"
+                       Text="{x:Static Font_icons:IconFonts.Award}"
+                       TextColor="Gold"
+                       FontSize="90"></Label>
+                
+            </StackLayout>
+
+            <StackLayout Grid.Row="1">
+
+                <Entry Style="{StaticResource Entry2}"
+                       Text="{Binding NombreHabilidadEntry, Mode=TwoWay}"></Entry>
+
+            </StackLayout> 
+
+            <StackLayout Grid.Row="2">
+
+                <Label Style="{StaticResource Subtitle1}"
+                       Text="Fijar recordatorio"></Label>
+
+                <Switch HorizontalOptions="Start"  
+                        IsToggled="{Binding NotificacionEntry, Mode=TwoWay}"/>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" Orientation="Horizontal" IsVisible="{Binding NotificacionEntry, Mode=TwoWay}">
+
+                <Button Text="{x:Static Font_icons:IconFonts.CalendarCheckO}" 
+                        FontFamily="Icons" FontSize="35" 
+                        Style="{StaticResource button2}" 
+                        Clicked="Calendar_Clicked"></Button>
+                
+                <Label Text="Agendarlo en Google Maps" Style="{StaticResource Subtitle1}" ></Label>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="4">
+
+                <Button Style="{StaticResource button1}"
+                        Text="Editar"
+                        Command="{Binding UpdateCommand}"></Button>
+
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

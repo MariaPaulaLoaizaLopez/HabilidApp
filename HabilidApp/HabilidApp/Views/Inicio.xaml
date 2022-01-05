@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Font_icons ="clr-namespace:HabilidApp.Fonts"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="HabilidApp.Views.Inicio" BackgroundColor="{StaticResource Background}">
+    
+    <ContentPage.Content>
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackLayout Margin="40,40,0,40"  Grid.Row="0" Orientation="Horizontal">
+
+                <Label  Style="{StaticResource Subtitle1}"
+                        Text="{Binding fechaEntry}"
+                        HorizontalOptions="Start"></Label>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Orientation="Horizontal">
+                
+                <Button Style="{StaticResource button2}"
+                        FontFamily="Icons"
+                        Text="{x:Static Font_icons:IconFonts.PlusCircled}"
+                        FontSize="20"
+                        Clicked="Nueva_Clicked"></Button>
+                
+                <Label Text="Agregar nueva habilidad"
+                       Style="{StaticResource Subtitle1}"
+                       TextColor="{StaticResource white_font}"></Label>
+                
+            </StackLayout>
+
+            <StackLayout Grid.Row="3">
+                
+                <ListView ItemsSource="{Binding ListViewSource}" IsPullToRefreshEnabled="True" 
+                          ItemSelected="ListItemSelected"
+                          HasUnevenRows="True">
+                    
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    
+                                    <CheckBox Color="{StaticResource mint}" 
+                                              IsChecked="{Binding TerminadoEntry}">
+                                    </CheckBox>
+                                    
+                                    <Label Style="{StaticResource Subtitle1}"
+                                            Text="{Binding NombreHabilidad}"
+                                            FontSize="Medium"
+                                            TextColor="{StaticResource white_font}"
+                                            ></Label>
+                                    
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </StackLayout>
+
+            <StackLayout Margin="0,0,0,0" Grid.Row="4">
+                
+                <Image Source="nave.png" />
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="5" Orientation="Horizontal">
+                
+               <!-- <Button Style="{StaticResource button1}"
+                        Text="Historial"
+                        Clicked="Historial_Clicked" HorizontalOptions="FillAndExpand"></Button> -->
+                
+                <Button Style="{StaticResource button1}"
+                        Text="Perfil"
+                        Clicked="Perfil_Clicked" HorizontalOptions="FillAndExpand"></Button >
+                
+            </StackLayout>
+        
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

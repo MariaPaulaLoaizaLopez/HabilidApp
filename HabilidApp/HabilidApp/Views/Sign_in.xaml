@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              NavigationPage.HasNavigationBar="False"
+             x:Class="HabilidApp.Views.Sign_in" BackgroundColor="{StaticResource Background}">
+    
+    <ContentPage.Content>
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions> 
+
+            <StackLayout Margin="40,60,0,40" Grid.Row="0">
+
+                <Label Style="{StaticResource Title}"
+                       Text="REGISTRO"></Label>
+                
+            </StackLayout>
+
+            <StackLayout Grid.Row="1">
+                
+                <Label Style="{StaticResource Subtitle2}"
+                       Text="Nombre"></Label>
+
+                <Entry Text="{Binding NombreEntry}"></Entry>
+                
+                <Label Text="Correo"
+                       Style="{StaticResource Subtitle2}"></Label>
+
+                <Entry Text="{Binding CorreoEntry}" 
+                       Keyboard="Email"></Entry>
+                
+                <Label Text="Contraseña"
+                       Style="{StaticResource Subtitle2}"></Label>
+                
+                <Entry IsPassword="true" 
+                       Text="{Binding ClaveEntry}"/>
+                
+                <Button Style="{StaticResource button1}" Text="Registrarse"
+                        Command="{Binding RegisterCommand}"></Button>
+                
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Orientation="Horizontal">
+                
+                <Label Text="Ya tienes cuenta?"
+                       Style="{StaticResource Subtitle2}"
+                       TextColor="{StaticResource white_font}"></Label>
+                
+                <Button Padding="10,0,0,25" Style="{StaticResource button2}"
+                        Text="INICIAR SESIÓN"
+                        TextColor="{StaticResource mint}"
+                        Clicked="Inicio_Clicked"></Button>
+                
+            </StackLayout>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
