@@ -41,5 +41,10 @@ namespace HabilidApp.Views
         {
             PopupNavigation.Instance.PushAsync(new PopUpCreateActividad(idHabilidad));
         }
+
+        private void Back_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new Inicio(), true);
+        }
     }
 }
