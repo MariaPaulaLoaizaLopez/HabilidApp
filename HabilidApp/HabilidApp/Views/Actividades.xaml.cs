@@ -18,8 +18,8 @@ namespace HabilidApp.Views
         public Actividades()
         {
             InitializeComponent();
-           
-        } 
+
+        }
 
         public Actividades(HabilidadesModel item)
         {

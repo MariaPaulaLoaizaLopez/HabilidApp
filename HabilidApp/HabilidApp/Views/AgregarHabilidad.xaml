@@ -47,7 +47,7 @@
                         FontFamily="Icons" FontSize="35" Style="{StaticResource button2}" 
                         Clicked="Calendar_Clicked"></Button>
                 
-                <Label Text="Agendarlo en Google Maps" Style="{StaticResource Subtitle1}" ></Label>
+                <Label Text="Agendarlo en Google Calendar" Style="{StaticResource Subtitle1}" ></Label>
 
             </StackLayout>
 
